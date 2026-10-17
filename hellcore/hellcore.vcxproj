@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{66b4b4c7-3f16-47ca-b727-1603ea7d50c0}</ProjectGuid>
+    <RootNamespace>hellcore</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)external\freetype\include;$(ProjectDir)external\imgui;$(ProjectDir)external;$(ProjectDir)src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VcpkgRoot)\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir)external\freetype\include;$(ProjectDir)external\imgui;$(ProjectDir)external;$(ProjectDir)src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VcpkgRoot)\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;hellcore_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;hellcore_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;hellcore_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>$(ProjectDir)external\freetype\win64\freetype.lib;$(ProjectDir)external\lz4.lib;winmm.lib;ntdll.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;hellcore_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>$(ProjectDir)external\freetype\win64\freetype.lib;$(ProjectDir)external\lz4.lib;winmm.lib;ntdll.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="external\imgui\freetype\imgui_freetype.cpp" />
+    <ClCompile Include="external\imgui\imgui.cpp" />
+    <ClCompile Include="external\imgui\imgui_demo.cpp" />
+    <ClCompile Include="external\imgui\imgui_draw.cpp" />
+    <ClCompile Include="external\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="external\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="external\imgui\imgui_stdlib.cpp" />
+    <ClCompile Include="external\imgui\imgui_tables.cpp" />
+    <ClCompile Include="external\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="external\minhook\buffer.c" />
+    <ClCompile Include="external\minhook\hde\hde32.c" />
+    <ClCompile Include="external\minhook\hde\hde64.c" />
+    <ClCompile Include="external\minhook\hook.c" />
+    <ClCompile Include="external\minhook\trampoline.c" />
+    <ClCompile Include="src\cheat\features\exploits\exploits.cpp" />
+    <ClCompile Include="src\cheat\features\misc\reveal_equipment.cpp" />
+    <ClCompile Include="src\cheat\features\ragebot\shotlogger.cpp" />
+    <ClCompile Include="src\cheat\features\visuals\dropped_weapons.cpp" />
+    <ClCompile Include="src\cheat\features\visuals\fog_handler.cpp" />
+    <ClCompile Include="src\cheat\features\visuals\grenade.cpp" />
+    <ClCompile Include="src\cheat\features\visuals\overlay_features.cpp" />
+    <ClCompile Include="src\cheat\features\visuals\particle_manager.cpp" />
+    <ClCompile Include="src\cheat\config\config_serialization_registry.cpp" />
+    <ClCompile Include="src\cheat\config\config_system.cpp" />
+    <ClCompile Include="src\cheat\features\aimbot shared\hitbox.cpp" />
+    <ClCompile Include="src\cheat\features\antiaim\antiaim.cpp" />
+    <ClCompile Include="src\cheat\features\engine_prediction\engine_prediction.cpp" />
+    <ClCompile Include="src\cheat\features\lag compensation\lag_compensation.cpp" />
+    <ClCompile Include="src\cheat\features\lag compensation\timestamp\timestamp.cpp" />
+    <ClCompile Include="src\cheat\features\movement\movement.cpp" />
+    <ClCompile Include="src\cheat\features\misc\autobuy.cpp" />
+    <ClCompile Include="src\cheat\features\penetration\autowall.cpp" />
+    <ClCompile Include="src\cheat\features\ragebot\ragebot.cpp" />
+    <ClCompile Include="src\cheat\features\skins\skins.cpp" />
+    <ClCompile Include="src\cheat\features\skins\custom_models.cpp" />
+    <ClCompile Include="src\cheat\features\visuals\chams.cpp" />
+    <ClCompile Include="src\cheat\features\misc\preserve_kill_feed.cpp" />
+    <ClCompile Include="src\cheat\features\visuals\skybox_changer.cpp" />
+    <ClCompile Include="src\cheat\features\visuals\visual_events.cpp" />
+    <ClCompile Include="src\cheat\hooks\engine_hooks\engine_hooks.cpp" />
+    <ClCompile Include="src\cheat\hooks\particles_hooks\particles_hooks.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\widgets\input_text.cpp" />
+    <ClCompile Include="src\cheat\menu\tabs\visuals_tab.cpp" />
+    <ClCompile Include="src\cheat\menu\visual_preview.cpp" />
+    <ClCompile Include="src\cheat\hooks\animation_system\animation_system_hooks.cpp" />
+    <ClCompile Include="src\cheat\hooks\scene_system\scene_system_hooks.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\hell_gui.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\blur.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\widgets\button.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\widgets\checkbox.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\widgets\child.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\widgets\color_picker.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\widgets\combo.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\widgets\continue_line.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\widgets\keybind.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\widgets\label.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\widgets\slider.cpp" />
+    <ClCompile Include="src\cheat\menu\hell_gui\widgets\window.cpp" />
+    <ClCompile Include="src\cheat\menu\tabs\skins_tab.cpp" />
+    <ClCompile Include="src\math\math types\vector.cpp" />
+    <ClCompile Include="src\math\math types\view_matrix.cpp" />
+    <ClCompile Include="src\sdk\datatypes\murmur_hash.cpp" />
+    <ClCompile Include="src\sdk\entity\controller.cpp" />
+    <ClCompile Include="src\sdk\entity\weapon.cpp" />
+    <ClCompile Include="src\sdk\interfaces\econ_item_system.cpp" />
+    <ClCompile Include="src\sdk\interfaces\event_manager.cpp" />
+    <ClCompile Include="src\sdk\interfaces\mesh_system.cpp" />
+    <ClCompile Include="src\sdk\interfaces\network_game_client_services.cpp" />
+    <ClCompile Include="src\sdk\interfaces\scene_system.cpp" />
+    <ClCompile Include="src\utils\fonts\font_manager.cpp" />
+    <ClCompile Include="src\utils\lz4.h" />
+    <ClCompile Include="src\utils\stb_image.cpp" />
+    <ClCompile Include="src\utils\vtex_parser.cpp" />
+    <ClCompile Include="src\sdk\schema\schema.cpp" />
+    <ClCompile Include="src\cheat\features\visuals\visuals.cpp" />
+    <ClCompile Include="src\cheat\hooks\render_system\render_system_hooks.cpp" />
+    <ClCompile Include="src\cheat\input.cpp" />
+    <ClCompile Include="src\cheat\menu\menu.cpp" />
+    <ClCompile Include="src\cheat\menu\tabs\config_tab.cpp" />
+    <ClCompile Include="src\cheat\menu\tabs\misc_tab.cpp" />
+    <ClCompile Include="src\cheat\menu\tabs\aimbot_tab.cpp" />
+    <ClCompile Include="src\core\hooks\hooks.cpp" />
+    <ClCompile Include="src\cheat\hooks\client\client_hooks.cpp" />
+    <ClCompile Include="src\entry.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\math\math.cpp" />
+    <ClCompile Include="src\core\interfaces\interfaces.cpp" />
+    <ClCompile Include="src\sdk\entity\base_handle.cpp" />
+    <ClCompile Include="src\sdk\entity\entity.cpp" />
+    <ClCompile Include="src\sdk\entity\pawn.cpp" />
+    <ClCompile Include="src\sdk\interfaces\hitbox_system.cpp" />
+    <ClCompile Include="src\sdk\interfaces\physics.cpp" />
+    <ClCompile Include="src\sdk\interfaces\trace.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="external\nlohmann\json.hpp" />
+    <ClInclude Include="src\cheat\features\exploits\exploits.h" />
+    <ClInclude Include="src\cheat\features\misc\reveal_equipment.h" />
+    <ClInclude Include="src\cheat\features\ragebot\shotlogger.h" />
+    <ClInclude Include="src\cheat\features\visuals\dropped_weapons.h" />
+    <ClInclude Include="src\cheat\features\visuals\fog_handler.h" />
+    <ClInclude Include="src\cheat\features\visuals\grenade.h" />
+    <ClInclude Include="src\cheat\features\visuals\overlay_features.h" />
+    <ClInclude Include="src\cheat\features\visuals\particle_manager.h" />
+    <ClInclude Include="src\cheat\features\misc\preserve_kill_feed.h" />
+    <ClInclude Include="src\cheat\hooks\engine_hooks\engine_hooks.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\widgets\input_text.h" />
+    <ClInclude Include="src\cheat\menu\tabs\visuals_tab.h" />
+    <ClInclude Include="src\sdk\entity\bomb.h" />
+    <ClInclude Include="src\sdk\interfaces\game_rules.h" />
+    <ClInclude Include="src\sdk\interfaces\isteamclient.h" />
+    <ClInclude Include="src\sdk\interfaces\isteamfriend.h" />
+    <ClInclude Include="src\sdk\interfaces\isteamutils.h" />
+    <ClInclude Include="src\sdk\interfaces\particle_system.h" />
+    <ClInclude Include="src\cheat\config\config_serialization_registry.h" />
+    <ClInclude Include="src\cheat\config\config_serializers.h" />
+    <ClInclude Include="src\cheat\features\aimbot shared\general_shared.h" />
+    <ClInclude Include="src\cheat\features\aimbot shared\hitbox.h" />
+    <ClInclude Include="src\cheat\features\antiaim\antiaim.h" />
+    <ClInclude Include="src\cheat\features\engine_prediction\engine_prediction.h" />
+    <ClInclude Include="src\cheat\features\lag compensation\timestamp\timestamp.h" />
+    <ClInclude Include="src\cheat\features\movement\movement.h" />
+    <ClInclude Include="src\cheat\features\misc\autobuy.h" />
+    <ClInclude Include="src\cheat\features\penetration\autowall.h" />
+    <ClInclude Include="src\cheat\features\skins\skins.h" />
+    <ClInclude Include="src\cheat\features\skins\custom_models.h" />
+    <ClInclude Include="src\cheat\features\threadpool\thread_pool.h" />
+    <ClInclude Include="src\cheat\features\visuals\chams.h" />
+    <ClInclude Include="src\cheat\features\visuals\skybox_changer.h" />
+    <ClInclude Include="src\cheat\features\visuals\visual_events.h" />
+    <ClInclude Include="src\cheat\menu\visual_preview.h" />
+    <ClInclude Include="src\cheat\features\visuals\vmats.h" />
+    <ClInclude Include="src\cheat\hooks\animation_system\animation_system_hooks.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\colors.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\drawlist.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\runtime_variables.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\widgets\child.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\widgets\combo.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\widgets\keybind.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\widgets\slider.h" />
+    <ClInclude Include="src\cheat\menu\tabs\skins_tab.h" />
+    <ClInclude Include="src\context.h" />
+    <ClInclude Include="external\freetype\include\freetype\config\ftconfig.h" />
+    <ClInclude Include="external\freetype\include\freetype\config\ftheader.h" />
+    <ClInclude Include="external\freetype\include\freetype\config\ftmodule.h" />
+    <ClInclude Include="external\freetype\include\freetype\config\ftoption.h" />
+    <ClInclude Include="external\freetype\include\freetype\config\ftstdlib.h" />
+    <ClInclude Include="external\freetype\include\freetype\config\integer-types.h" />
+    <ClInclude Include="external\freetype\include\freetype\config\mac-support.h" />
+    <ClInclude Include="external\freetype\include\freetype\config\public-macros.h" />
+    <ClInclude Include="external\freetype\include\freetype\freetype.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftadvanc.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftbbox.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftbdf.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftbitmap.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftbzip2.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftcache.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftchapters.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftcid.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftcolor.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftdriver.h" />
+    <ClInclude Include="external\freetype\include\freetype\fterrdef.h" />
+    <ClInclude Include="external\freetype\include\freetype\fterrors.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftfntfmt.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftgasp.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftglyph.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftgxval.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftgzip.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftimage.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftincrem.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftlcdfil.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftlist.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftlogging.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftlzw.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftmac.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftmm.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftmodapi.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftmoderr.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftotval.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftoutln.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftparams.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftpfr.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftrender.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftsizes.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftsnames.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftstroke.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftsynth.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftsystem.h" />
+    <ClInclude Include="external\freetype\include\freetype\fttrigon.h" />
+    <ClInclude Include="external\freetype\include\freetype\fttypes.h" />
+    <ClInclude Include="external\freetype\include\freetype\ftwinfnt.h" />
+    <ClInclude Include="external\freetype\include\freetype\otsvg.h" />
+    <ClInclude Include="external\freetype\include\freetype\t1tables.h" />
+    <ClInclude Include="external\freetype\include\freetype\ttnameid.h" />
+    <ClInclude Include="external\freetype\include\freetype\tttables.h" />
+    <ClInclude Include="external\freetype\include\freetype\tttags.h" />
+    <ClInclude Include="external\freetype\include\ft2build.h" />
+    <ClInclude Include="external\ida_defs.h" />
+    <ClInclude Include="external\imgui\cpp\imgui_stdlib.h" />
+    <ClInclude Include="external\imgui\freetype\imgui_freetype.h" />
+    <ClInclude Include="external\imgui\imconfig.h" />
+    <ClInclude Include="external\imgui\imgui.h" />
+    <ClInclude Include="external\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="external\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="external\imgui\imgui_internal.h" />
+    <ClInclude Include="external\imgui\imgui_stdlib.h" />
+    <ClInclude Include="external\imgui\impl\imgui_impl_dx11.h" />
+    <ClInclude Include="external\imgui\impl\imgui_impl_win32.h" />
+    <ClInclude Include="external\imgui\imstb_rectpack.h" />
+    <ClInclude Include="external\imgui\imstb_textedit.h" />
+    <ClInclude Include="external\imgui\imstb_truetype.h" />
+    <ClInclude Include="external\json\json.hpp" />
+    <ClInclude Include="external\minhook\buffer.h" />
+    <ClInclude Include="external\minhook\hde\hde32.h" />
+    <ClInclude Include="external\minhook\hde\hde64.h" />
+    <ClInclude Include="external\minhook\hde\pstdint.h" />
+    <ClInclude Include="external\minhook\hde\table32.h" />
+    <ClInclude Include="external\minhook\hde\table64.h" />
+    <ClInclude Include="external\minhook\minhook.h" />
+    <ClInclude Include="external\minhook\trampoline.h" />
+    <ClInclude Include="external\stb\stb_image.h" />
+    <ClInclude Include="external\stb\stb_sprintf.h" />
+    <ClInclude Include="src\cheat\config\config_system.h" />
+    <ClInclude Include="src\cheat\config\vars.h" />
+    <ClInclude Include="src\cheat\features\entity cache\entity_cache.h" />
+    <ClInclude Include="src\cheat\features\lag compensation\lag_compensation.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\hell_gui.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\blur.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\widgets\button.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\widgets\checkbox.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\widgets\color_picker.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\widgets\continue_line.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\widgets\label.h" />
+    <ClInclude Include="src\cheat\menu\hell_gui\widgets\window.h" />
+    <ClInclude Include="src\sdk\datatypes\c_buffer_string.h" />
+    <ClInclude Include="src\sdk\datatypes\key_values.h" />
+    <ClInclude Include="src\sdk\datatypes\murmur_hash.h" />
+    <ClInclude Include="src\sdk\datatypes\scene_object.h" />
+    <ClInclude Include="src\sdk\datatypes\utl_map.h" />
+    <ClInclude Include="src\sdk\datatypes\utl_vector.h" />
+    <ClInclude Include="src\sdk\entity\weapon.h" />
+    <ClInclude Include="src\sdk\interfaces\client_mode_cs_normal.h" />
+    <ClInclude Include="src\sdk\interfaces\econ_item_system.h" />
+    <ClInclude Include="src\sdk\interfaces\engine_client.h" />
+    <ClInclude Include="src\sdk\interfaces\engine_cvar.h" />
+    <ClInclude Include="src\sdk\interfaces\engine_pvs_manager.h" />
+    <ClInclude Include="src\sdk\interfaces\event_manager.h" />
+    <ClInclude Include="src\sdk\interfaces\filesystem.h" />
+    <ClInclude Include="src\sdk\interfaces\game_event.h" />
+    <ClInclude Include="src\sdk\interfaces\material_system.h" />
+    <ClInclude Include="src\sdk\interfaces\mesh_system.h" />
+    <ClInclude Include="src\sdk\interfaces\network_game_client_services.h" />
+    <ClInclude Include="src\sdk\interfaces\panorama.h" />
+    <ClInclude Include="src\sdk\interfaces\prediction.h" />
+    <ClInclude Include="src\sdk\interfaces\resource_system.h" />
+    <ClInclude Include="src\sdk\interfaces\scene_system.h" />
+    <ClInclude Include="src\sdk\interfaces\source_client.h" />
+    <ClInclude Include="src\sdk\interfaces\steamclientpublic.h" />
+    <ClInclude Include="src\sdk\interfaces\steamunivers.h" />
+    <ClInclude Include="src\utils\fonts\compressed_fonts\smallest_pixel.h" />
+    <ClInclude Include="src\utils\fonts\compressed_fonts\test_avatar.h" />
+    <ClInclude Include="src\utils\lz4frame.h" />
+    <ClInclude Include="src\utils\tight_array.h" />
+    <ClInclude Include="src\utils\fonts\compressed_fonts\font_awesome.h" />
+    <ClInclude Include="src\utils\fonts\compressed_fonts\inter_bold_compressed.h" />
+    <ClInclude Include="src\utils\fonts\compressed_fonts\manrope_regular_compressed.h" />
+    <ClInclude Include="src\utils\fonts\font_manager.h" />
+    <ClInclude Include="src\cheat\features\ragebot\ragebot.h" />
+    <ClInclude Include="src\sdk\schema\schema.h" />
+    <ClInclude Include="src\cheat\features\visuals\visuals.h" />
+    <ClInclude Include="src\cheat\hooks\client\client_hooks.h" />
+    <ClInclude Include="src\cheat\hooks\render_system\render_system_hooks.h" />
+    <ClInclude Include="src\cheat\input.h" />
+    <ClInclude Include="src\cheat\menu\animation\anim.h" />
+    <ClInclude Include="src\cheat\menu\menu.h" />
+    <ClInclude Include="src\cheat\menu\tabs\config_tab.h" />
+    <ClInclude Include="src\cheat\menu\tabs\misc_tab.h" />
+    <ClInclude Include="src\cheat\menu\tabs\aimbot_tab.h" />
+    <ClInclude Include="src\core\hooks\hooks_include.h" />
+    <ClInclude Include="src\cheat\hooks\material_system\material_system_hooks.h" />
+    <ClInclude Include="src\cheat\hooks\mesh_system\mesh_system_hooks.h" />
+    <ClInclude Include="src\cheat\hooks\particles_hooks\particles_hooks.h" />
+    <ClInclude Include="src\cheat\hooks\scene_system\scene_system_hooks.h" />
+    <ClInclude Include="src\core\hooks\modules.h" />
+    <ClInclude Include="src\entry.h" />
+    <ClInclude Include="src\includes.h" />
+    <ClInclude Include="src\math\math types\view_matrix.h" />
+    <ClInclude Include="src\math\math.h" />
+    <ClInclude Include="src\math\math types\vector.h" />
+    <ClInclude Include="src\sdk\constants.h" />
+    <ClInclude Include="src\core\hooks\hellcore_hook.h" />
+    <ClInclude Include="src\core\hooks\hooks.h" />
+    <ClInclude Include="src\sdk\datatypes\fnv1a.h" />
+    <ClInclude Include="src\sdk\datatypes\user_cmd.h" />
+    <ClInclude Include="src\sdk\datatypes\utl_hash.h" />
+    <ClInclude Include="src\sdk\entity\base_handle.h" />
+    <ClInclude Include="src\sdk\entity\controller.h" />
+    <ClInclude Include="src\sdk\entity\entity.h" />
+    <ClInclude Include="src\core\interfaces\interfaces.h" />
+    <ClInclude Include="src\sdk\entity\networked_utl_vector.h" />
+    <ClInclude Include="src\sdk\entity\pawn.h" />
+    <ClInclude Include="src\sdk\interfaces\csgo_input.h" />
+    <ClInclude Include="src\sdk\interfaces\entity_system.h" />
+    <ClInclude Include="src\sdk\interfaces\global_variables.h" />
+    <ClInclude Include="src\sdk\interfaces\hitbox_system.h" />
+    <ClInclude Include="src\sdk\interfaces\physics.h" />
+    <ClInclude Include="src\sdk\interfaces\schema_system.h" />
+    <ClInclude Include="src\sdk\interfaces\trace.h" />
+    <ClInclude Include="src\sdk\steam_types.h" />
+    <ClInclude Include="src\utils\encryption\encrypted_ptr.h" />
+    <ClInclude Include="src\utils\encryption\xor.h" />
+    <ClInclude Include="src\utils\logging.h" />
+    <ClInclude Include="src\utils\memory.h" />
+    <ClInclude Include="src\utils\vtex_parser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="external\freetype\win64\freetype.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
